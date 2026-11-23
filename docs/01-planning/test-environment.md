@@ -1,6 +1,6 @@
 ﻿# Test Environment (Draf, D01)
 
-> Status: DRAF, akan dilengkapi di D02 (SUT berjalan via Docker).
+> Status: DRAF, diperbarui D02 (SUT lokal via Docker berjalan).
 > Penanggung jawab: Ghatfani Muhammad Ilham (Test Automation Expert, D.4)
 > Terkait: Pertemuan 1 | ISO/IEC/IEEE 29119-5:2024 Cl.7 (komponen framework, tailored)
 
@@ -42,8 +42,22 @@ Output verifikasi tersimpan di evidence/ghatfani/d01/env-versions.txt dan eviden
 - Performance dan security testing hanya pada instance lokal/Docker milik tim.
 - Tidak melakukan load test atau scan terhadap situs pihak ketiga tanpa izin tertulis.
 
-## 6. Catatan Pembaruan
+## 7. SUT Lokal (D02)
+| Item | Nilai |
+|------|-------|
+| SUT | Wave Projects Center.ID v0.1.0 (sut-wave-projects:0.1.0-local + mysql:8.0.40) |
+| Sumber | Source code lokal tim (sut/wave-projects/, di-ignore oleh Git) |
+| Menjalankan | `docker compose -f automation/docker-compose.sut.yml up -d` |
+| Menghentikan | `docker compose -f automation/docker-compose.sut.yml down` |
+| URL UI | http://localhost:3000 (Login: http://localhost:3000/login) |
+| URL API | http://localhost:3000/api/v1/portfolios (serta /api/v1/settings, /api/v1/login) |
+| Binding | 127.0.0.1 saja (tidak terekspos jaringan) |
+| Akun uji | Dibuat saat smoke test (data dummy lokal; kredensial nyata tidak disimpan di repo) |
+| Reset data | `docker compose -f automation/docker-compose.sut.yml down -v` lalu `up -d` |
+| Smoke manual | `evidence/ghatfani/d02/smoke-manual.md` |
+
+## 8. Catatan Pembaruan
 | Hari | Perubahan | Oleh |
 |------|-----------|------|
 | D01 | Draf awal toolchain | ghatfani |
-| D02 | (menyusul) SUT & docker-compose | ghatfani |
+| D02 | SUT lokal via Docker + smoke manual | ghatfani |
