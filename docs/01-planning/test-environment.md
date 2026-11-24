@@ -1,6 +1,6 @@
 ﻿# Test Environment (Draf, D01)
 
-> Status: DRAF, akan dilengkapi di D02 (SUT berjalan via Docker).
+> Status: DRAF, diperbarui D02 (SUT lokal via Docker berjalan).
 > Penanggung jawab: Ghatfani Muhammad Ilham (Test Automation Expert, D.4)
 > Terkait: Pertemuan 1 | ISO/IEC/IEEE 29119-5:2024 Cl.7 (komponen framework, tailored)
 
@@ -42,8 +42,27 @@ Output verifikasi tersimpan di evidence/ghatfani/d01/env-versions.txt dan eviden
 - Performance dan security testing hanya pada instance lokal/Docker milik tim.
 - Tidak melakukan load test atau scan terhadap situs pihak ketiga tanpa izin tertulis.
 
-## 6. Catatan Pembaruan
+## 7. SUT & Lingkungan Pengujian (Diperbarui D03)
+| Item | Nilai |
+|------|-------|
+| SUT | Wave Projects Center.ID (Next.js, Tailwind, TiDB/MySQL, Vercel, Midtrans, Gemini AI) |
+| URL Produksi (Utama) | https://wave-projects-center-id.vercel.app (canonical: waveprojects.my.id) |
+| Sandbox Lokal (Isolasi) | Docker Compose (`automation/docker-compose.sut.yml`, `127.0.0.1:3000`, `mysql:8.0.40`) |
+| Jenis akses | Remote black-box via browser/HTTP untuk produksi; white/grey-box terisolasi di Docker lokal |
+| Halaman utama | `/` (beranda), `/chat` (konsultasi AI), `/checkout` (pemesanan), `/login` (portal internal) |
+| Status izin pengujian | Menunggu konfirmasi tertulis pemilik untuk uji performa/security ringan pada URL produksi |
+| Kode sumber | Tersedia secara lokal untuk analisis struktur & Docker sandbox (`sut/wave-projects/`, di-ignore Git) |
+| Staging/preview | Belum ada URL preview Vercel terpisah; menggunakan Docker lokal sebagai lingkungan isolasi |
+| Smoke manual | `evidence/ghatfani/d02/smoke-manual.md` |
+
+### Pembatasan pengujian
+- Tidak menyelesaikan pembayaran nyata (Midtrans) pada lingkungan produksi.
+- `/chat` (AI): uji manual terbatas karena memakai kuota/biaya pemilik; verifikasi pada struktur & perilaku respons.
+- Performance dan security test pada URL produksi hanya dilakukan setelah ada izin tertulis pemilik dengan laju rendah (non-destruktif), atau dijalankan pada sandbox Docker lokal.
+
+## 8. Catatan Pembaruan
 | Hari | Perubahan | Oleh |
 |------|-----------|------|
 | D01 | Draf awal toolchain | ghatfani |
-| D02 | (menyusul) SUT & docker-compose | ghatfani |
+| D02 | SUT lokal via Docker + smoke manual Wave Projects | ghatfani |
+| D03 | Pembaruan profil SUT produksi Wave Projects & pembatasan pengujian | ghatfani |
