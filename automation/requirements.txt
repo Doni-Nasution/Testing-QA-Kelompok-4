@@ -1,0 +1,14 @@
+﻿# Keyword-driven framework (Robot Framework)
+robotframework
+robotframework-browser
+robotframework-seleniumlibrary
+robotframework-requests
+robotframework-datadriver
+
+# Unit & integration testing
+pytest
+pytest-cov
+requests
+
+# Validasi keyword library terhadap kwd_schema.json (Annex G)
+jsonschema

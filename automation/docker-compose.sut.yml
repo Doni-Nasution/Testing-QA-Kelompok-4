@@ -1,0 +1,49 @@
+﻿# SUT lokal untuk pengujian: Wave Projects Center.ID (D02, P2)
+# Dijalankan hanya di localhost. Performance & security test hanya pada instance ini.
+name: sut-wave-projects
+
+services:
+  db:
+    image: mysql:8.0.40
+    container_name: sut-wave-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wave_projects_center
+    volumes:
+      - wave_db_data:/var/lib/mysql
+      - ../sut/wave-projects/database.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ../sut/wave-projects/p4_tables.sql:/docker-entrypoint-initdb.d/02-p4-tables.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ../sut/wave-projects
+      dockerfile: Dockerfile
+    image: sut-wave-projects:0.1.0-local
+    container_name: sut-wave-projects
+    ports:
+      - "127.0.0.1:3000:3000"   # hanya bisa diakses dari mesin ini
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USERNAME: root
+      DB_PASSWORD: rootpass
+      DB_DATABASE: wave_projects_center
+      DB_SSL: "false"
+      JWT_SECRET: local_qa_testing_jwt_secret_key_2026
+      NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+      TURNSTILE_SECRET: 1x0000000000000000000000000000000AA
+      GEMINI_API_KEY: dummy_local_testing_key
+    restart: unless-stopped
+
+volumes:
+  wave_db_data:
