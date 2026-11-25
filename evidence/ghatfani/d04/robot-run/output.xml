@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.10.6 on win32)" generated="2026-11-25T20:05:21.510166" rpa="false" schemaversion="5">
+<suite id="s1" name="Spike Web" source="C:\Users\MassBull\Documents\Testing-QA-Kelompok-4\automation\suites\spike\spike_web.robot">
+<test id="s1-t1" name="SPIKE-01 Open Page Shows Home" line="13">
+<kw name="Open Page" owner="web">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-11-25T20:05:22.079398" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\MassBull\\Documents\\Testing-QA-Kelompok-4\\evidence\\ghatfani\\d04\\robot-run\\browser\\traces\\temp\\626f1286-6b2d-4d75-9517-ef81cf38e194"}</msg>
+<msg time="2026-11-25T20:05:22.118127" level="INFO">Starting Browser process C:\Users\MassBull\Documents\Testing-QA-Kelompok-4\.venv\lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:59258</msg>
+<msg time="2026-11-25T20:05:23.360246" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\MassBull\\Documents\\Testing-QA-Kelompok-4\\evidence\\ghatfani\\d04\\robot-run\\browser\\traces\\temp\\626f1286-6b2d-4d75-9517-ef81cf38e194"}</msg>
+<arg>browser=${browser}</arg>
+<arg>headless=${headless}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-11-25T20:05:22.079398" elapsed="1.285068"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-11-25T20:05:23.368016" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-11-25T20:05:23.379296" level="INFO">Successfully created context. </msg>
+<msg time="2026-11-25T20:05:23.379296" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-11-25T20:05:23.365670" elapsed="0.013626"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>${TIMEOUT}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2026-11-25T20:05:23.379296" elapsed="0.006019"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-11-25T20:05:24.558143" level="INFO">Successfully initialized new page object and opened url: https://wave-projects-center-id.vercel.app</msg>
+<arg>${url}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-11-25T20:05:23.385985" elapsed="1.172158"/>
+</kw>
+<doc>[Navigation] Membuka browser lalu halaman tertentu.
+Parameter: url (default https://wave-projects-center-id.vercel.app); browser (default chromium); headless (default True).</doc>
+<status status="PASS" start="2026-11-25T20:05:22.079398" elapsed="2.478745"/>
+</kw>
+<kw name="Verify URL Contains" owner="web">
+<kw name="Get Url" owner="Browser">
+<arg>*=</arg>
+<arg>${expected}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-11-25T20:05:24.563664" elapsed="0.006289"/>
+</kw>
+<arg>wave-projects-center-id.vercel.app</arg>
+<doc>[Verification] Memastikan URL saat ini memuat potongan teks yang diharapkan.
+Parameter: expected (wajib).</doc>
+<status status="PASS" start="2026-11-25T20:05:24.562656" elapsed="0.007297"/>
+</kw>
+<tag>navigation</tag>
+<tag>spike</tag>
+<status status="PASS" start="2026-11-25T20:05:22.078007" elapsed="2.494692"/>
+</test>
+<test id="s1-t2" name="SPIKE-02 Click Element Navigates To Chat" line="18">
+<kw name="Click Element" owner="web">
+<kw name="Click" owner="Browser">
+<msg time="2026-11-25T20:05:24.582295" level="INFO">Clicks the element 'css=a[href$="/chat"] &gt;&gt; nth=0'.</msg>
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-11-25T20:05:24.579693" elapsed="0.712058"/>
+</kw>
+<arg>${NAV_CHAT}</arg>
+<doc>[Navigation] Mengklik sebuah elemen.
+Parameter: locator (wajib), selector Browser, mis. css=a[href$="/chat"] &gt;&gt; nth=0</doc>
+<status status="PASS" start="2026-11-25T20:05:24.579693" elapsed="0.712058"/>
+</kw>
+<kw name="Verify URL Contains" owner="web">
+<kw name="Get Url" owner="Browser">
+<arg>*=</arg>
+<arg>${expected}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-11-25T20:05:25.291751" elapsed="0.714134"/>
+</kw>
+<arg>/chat</arg>
+<doc>[Verification] Memastikan URL saat ini memuat potongan teks yang diharapkan.
+Parameter: expected (wajib).</doc>
+<status status="PASS" start="2026-11-25T20:05:25.291751" elapsed="0.714134"/>
+</kw>
+<tag>navigation</tag>
+<tag>spike</tag>
+<status status="PASS" start="2026-11-25T20:05:24.577167" elapsed="1.428718"/>
+</test>
+<test id="s1-t3" name="SPIKE-03 Input Text Into Field Fills Chat Input" line="23">
+<kw name="Input Text Into Field" owner="web">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-11-25T20:05:26.011793" level="INFO">Fills the text 'Halo, ini uji otomatis QA (tidak dikirim)' in the given field.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-11-25T20:05:26.011793" elapsed="0.848623"/>
+</kw>
+<arg>${CHAT_INPUT}</arg>
+<arg>${SAMPLE_TEXT}</arg>
+<doc>[Navigation] Mengosongkan lalu mengisi sebuah field. TIDAK mengirim/submit.
+Parameter: locator (wajib); text (wajib).</doc>
+<status status="PASS" start="2026-11-25T20:05:26.011793" elapsed="0.848623"/>
+</kw>
+<kw name="Verify Field Has Value" owner="web">
+<kw name="Get Property" owner="Browser">
+<msg time="2026-11-25T20:05:26.892552" level="INFO">Property: 'Halo, ini uji otomatis QA (tidak dikirim)'</msg>
+<arg>${locator}</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>${expected}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-11-25T20:05:26.860416" elapsed="0.032136"/>
+</kw>
+<arg>${CHAT_INPUT}</arg>
+<arg>${SAMPLE_TEXT}</arg>
+<doc>[Verification] Memastikan nilai sebuah field sama dengan yang diharapkan.
+Parameter: locator (wajib); expected (wajib).</doc>
+<status status="PASS" start="2026-11-25T20:05:26.860416" elapsed="0.035441"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2026-11-25T20:05:28.008145" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2026-11-25T20:05:26.895857" elapsed="1.112288"/>
+</kw>
+<tag>navigation</tag>
+<tag>spike</tag>
+<status status="PASS" start="2026-11-25T20:05:26.011793" elapsed="1.998363"/>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-11-25T20:05:28.822903" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-25T20:05:28.017595" elapsed="0.806165"/>
+</kw>
+<doc>SPIKE D04: validasi keyword Open, Input, Click pada SUT Wave Projects.
+Hanya baca dan ketik. Tidak ada pesan dikirim, tidak ada transaksi.</doc>
+<status status="PASS" start="2026-11-25T20:05:21.514082" elapsed="7.309678"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">navigation</stat>
+<stat pass="3" fail="0" skip="0">spike</stat>
+</tag>
+<suite>
+<stat name="Spike Web" id="s1" pass="3" fail="0" skip="0">Spike Web</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
