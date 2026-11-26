@@ -1,0 +1,20 @@
+[run]
+branch = True
+# Target coverage belum ditetapkan karena kode sumber SUT (Next.js) tidak berada di repo ini
+source = .
+omit =
+    unit/*
+    integration/*
+    */site-packages/*
+    conftest.py
+
+[report]
+show_missing = True
+skip_empty = True
+# fail_under = 60   # aktifkan setelah baseline coverage diketahui
+
+[xml]
+output = coverage.xml
+
+[html]
+directory = htmlcov
