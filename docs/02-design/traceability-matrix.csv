@@ -1,0 +1,11 @@
+requirement_id,requirement_description,test_condition_id,test_condition,priority,related_test_case_id,test_status,notes
+REQ-001,"Pengguna dapat mengakses bagian layanan website",TCN-001,"Memastikan bagian layanan dapat dibuka dan informasi layanan ditampilkan",TBD,,Not Tested,"Berdasarkan observasi awal; detail penerimaan perlu divalidasi"
+REQ-002,"Pengguna dapat mengakses antarmuka AI Chat",TCN-002,"Memastikan antarmuka AI Chat dapat dibuka dan kolom pesan tersedia",TBD,,Not Tested,"Respons AI belum diverifikasi"
+REQ-003,"Pengguna dapat mengakses bagian pemesanan proyek",TCN-003,"Memastikan halaman atau antarmuka pemesanan dapat dibuka",TBD,,Not Tested,"Pengiriman pemesanan belum diverifikasi"
+REQ-004,"Sistem menyediakan navigasi antarbagian website",TCN-004,"Memeriksa navigasi dari satu bagian website ke bagian lainnya",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-005,"Sistem menerima pesan konsultasi dari pengguna",TCN-005,"Memeriksa apakah pengguna dapat memasukkan dan mengirim pesan konsultasi",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-006,"Sistem memberikan respons terhadap pesan konsultasi",TCN-006,"Memeriksa apakah AI memberikan respons setelah pesan dikirim",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-007,"Sistem menerima data pemesanan pengguna",TCN-007,"Memeriksa apakah formulir pemesanan menerima input pengguna",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-008,"Sistem memvalidasi data pemesanan",TCN-008,"Memeriksa validasi ketika data pemesanan kosong atau tidak sesuai",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-009,"Sistem menyediakan halaman checkout",TCN-009,"Memeriksa apakah halaman checkout dapat diakses setelah proses pemesanan",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
+REQ-010,"Sistem menyediakan mekanisme pembayaran",TCN-010,"Memeriksa ketersediaan mekanisme pembayaran dalam alur pemesanan",TBD,,Not Tested,"Kandidat kebutuhan; perlu validasi"
