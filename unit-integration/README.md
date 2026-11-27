@@ -35,3 +35,20 @@ Artefak: `unit-test-results` (junit, coverage xml, htmlcov).
 
 ## Keterkaitan standar
 Unit level (Pertemuan 5) pada hierarki pengujian. Penyesuaian terhadap ketersediaan kode sumber SUT dinyatakan di `docs/01-planning/tailored-conformance.md`.
+
+## Integration test (D06)
+Menyentuh SUT live (Wave Projects). **Read-only secara default**, jeda 1 detik antar request.
+
+```powershell
+cd unit-integration
+pytest integration -m "integration and not write" -rA
+```
+
+| Variabel | Fungsi | Default |
+|---|---|---|
+| `SUT_BASE_URL` | Alamat SUT (ganti ke staging bila ada) | https://wave-projects-center-id.vercel.app |
+| `ALLOW_WRITE` | `1` mengaktifkan tes `write` (butuh izin pemilik) | tidak aktif |
+| `THROTTLE_SECONDS` | Jeda antar tes | 1.0 |
+
+Endpoint API didefinisikan di `integration/api_endpoints.csv`. Dilarang: POST ke `/chat`, apa pun di `/checkout`.
+Tidak dijalankan di CI.

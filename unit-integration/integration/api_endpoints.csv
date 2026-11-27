@@ -1,0 +1,4 @@
+enabled,id,it_id,method,path,expect_status,expect_content_type,required_json_keys,write,body_json,notes
+1,API-001,IT-TBD,GET,/api/v1/portfolios,200,application/json,,0,,Daftar portfolio di beranda (sumber: evidence/ghatfani/d03/sut-observation.md)
+1,API-002,IT-TBD,GET,/api/v1/settings,200,application/json,,0,,Konfigurasi publik situs (sumber: evidence/ghatfani/d03/sut-observation.md)
+1,API-003,IT-TBD,GET,/api/v1/packages,200,application/json,,0,,Katalog paket layanan dari DB TiDB (sumber: evidence/ghatfani/d03/sut-observation.md)
